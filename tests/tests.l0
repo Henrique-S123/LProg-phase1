@@ -1,0 +1,27 @@
+Basic operations
+
+Let
+
+Functions
+
+Lists
+
+# let sum = fn list => {
+match list {
+| nil -> 0 | v::tail -> v + sum(tail)}
+};
+let myL = 1::(2::(3::(4::(5::nil))));
+sum(myL);;
+# 15
+
+Lazy Lists
+
+let fibo = fn a,b => {a:?(fibo (b) (a+b))};
+let fibogen = fibo (0) (1);
+let count = box 20;
+let lv = box(fibogen);
+while (*count ~= 0) {
+match *lv {
+| nil -> print("never happens")
+| v::tail -> println(v); lv := tail};
+count := *count - 1};;
