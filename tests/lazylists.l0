@@ -1,0 +1,30 @@
+let fibo = fn a,b => {a:?(fibo (b) (a+b))};
+let fibogen = fibo (0) (1);
+let count = box 20;
+let lv = box(fibogen);
+while (*count ~= 0) {
+    match *lv {
+    | nil -> print("never happens")
+    | v::tail -> println(v); lv := tail};
+count := *count - 1};;
+# 0
+# 1
+# 1
+# 2
+# 3
+# 5
+# 8
+# 13
+# 21
+# 34
+# 55
+# 89
+# 144
+# 233
+# 377
+# 610
+# 987
+# 1597
+# 2584
+# 4181
+# false

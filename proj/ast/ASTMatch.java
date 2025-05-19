@@ -13,26 +13,20 @@ public class ASTMatch implements ASTNode {
 		if (vt instanceof VNil) {
 			return nilcase.eval(e);
 		} else if (vt instanceof VCons) {
-			IValue first = ((VCons) vt).getFirst();
-			IValue second = ((VCons) vt).getSecond();
-			if (first instanceof VClos && ((VClos) first).getId() == null &&
-				second instanceof VClos && ((VClos) second).getId() == null) {
-				// Lcons case
-				IValue vfirst = ((VClos) first).getBody().eval(((VClos) first).getEnv());
-				IValue vsecond = ((VClos) second).getBody().eval(((VClos) second).getEnv());
-				((VCons) vt).setFirst(vfirst);
-				((VCons) vt).setSecond(vsecond);
-				
-				Environment<IValue> env = e.beginScope();
-				env.assoc(id1, vfirst);
-				env.assoc(id2, vsecond);
-				return conscase.eval(env);
-			} else {
-				Environment<IValue> env = e.beginScope();
-				env.assoc(id1, ((VCons) vt).getFirst());
-				env.assoc(id2, ((VCons) vt).getSecond());
-				return conscase.eval(env);
-			}
+			Environment<IValue> env = e.beginScope();
+			env.assoc(id1, ((VCons) vt).getFirst());
+			env.assoc(id2, ((VCons) vt).getSecond());
+			return conscase.eval(env);
+		} else if (vt instanceof VLcons) {
+			IValue vfirst = ((VLcons) vt).getFirst().eval(((VLcons) vt).getEnv());
+			IValue vsecond = ((VLcons) vt).getSecond().eval(((VLcons) vt).getEnv());
+			((VLcons) vt).setFirst(vfirst);
+			((VLcons) vt).setSecond(vsecond);
+
+			Environment<IValue> env = ((VLcons) vt).getEnv();
+			env.assoc(id1, vfirst);
+			env.assoc(id2, vsecond);
+			return conscase.eval(env);
 		} else {
 			throw new InterpreterError("illegal type to match: " + vt.toStr());
 		}

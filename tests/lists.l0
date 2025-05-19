@@ -1,0 +1,13 @@
+nil;;
+# nil
+
+2::(3::(4::nil));;
+# 2::3::4::nil
+
+let sum = fn list => {
+match list {
+| nil -> 0 | v::tail -> v + sum(tail)}
+};
+let myL = 1::(2::(3::(4::(5::nil))));
+sum(myL);;
+# 15

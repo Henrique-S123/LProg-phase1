@@ -1,0 +1,51 @@
+let x = box 1; x;;
+# ref(1)
+
+let x = box 1; *x;;
+# 1
+
+let k = 2;
+let a = box k;
+let b = box (*a+2);
+b := *a * *b + k;;
+# 10
+
+let k = 2;
+let a = box k;
+let b = box (*a+2);
+b := *a * *b + k; b;;
+# ref(10)
+
+let k = box 2;
+let a = k;
+let b = box (*a);
+a := *k+*b;;
+# 4
+
+let fact = fn n => {
+    let c = box n;
+    let f = box 1;
+    while (*c > 0) {
+        f := *f * *c;
+        c := *c - 1
+    };
+    *f
+}; println(fact (6));;
+# 720
+# true
+
+let c = box 5;
+while (*c > 0) {
+    println(*c);
+    c := *c - 1
+};;
+# 5
+# 4
+# 3
+# 2
+# 1
+# false
+
+let c = box 3;
+if (*c > 4) {*c + 2} else {*c + 3};;
+# 6
