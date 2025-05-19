@@ -18,25 +18,15 @@ public class VLcons implements IValue {
         vs = vs0;
     }
 
-    public ASTNode getFirst() {
-        return f;
-    }
+    public ASTNode getFirst() { return f; }
 
-    public ASTNode getSecond() {
-        return s;
-    }
+    public ASTNode getSecond() { return s; }
 
-    public Environment<IValue> getEnv() {
-        return e;
-    }
+    public Environment<IValue> getEnv() { return e; }
 
-    public void setFirst(IValue vf0) {
-        vf = vf0;
-    }
+    public void setFirst(IValue vf0) { vf = vf0; }
 
-    public void setSecond(IValue vs0) {
-        vs = vs0;
-    }
+    public void setSecond(IValue vs0) { vs = vs0; }
 
     public String toStr() {
         if (vf == null && vs == null) {
