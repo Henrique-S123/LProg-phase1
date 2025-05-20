@@ -30,9 +30,11 @@ public class VLcons implements IValue {
 
     public String toStr() {
         if (vf != null && vs != null) {
-            return vf.toStr() + ":?" + vs.toStr();
+            return "(" + vf.toStr() + ":?" + vs.toStr() + ")";
+        } else if (f instanceof IValue && s instanceof IValue) {
+            return "(" + ((IValue) f).toStr() + ":?" + ((IValue) s).toStr() + ")";
         } else {
-            return f + ":?" + s;
+            return "(" + f + ":?" + s + ")";
         }
     }
 }
