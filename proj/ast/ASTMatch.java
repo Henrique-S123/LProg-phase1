@@ -21,7 +21,7 @@ public class ASTMatch implements ASTNode {
 			IValue vsecond = ((VLcons) vt).getSecond().eval(((VLcons) vt).getEnv());
 			((VLcons) vt).setFirst(vfirst);
 			((VLcons) vt).setSecond(vsecond);
-			Environment<IValue> env = ((VLcons) vt).getEnv();
+			Environment<IValue> env = e.beginScope();
 			env.assoc(id1, vfirst);
 			env.assoc(id2, vsecond);
 			return conscase.eval(env);
