@@ -11,3 +11,13 @@ match list {
 let myL = 1::(2::(3::(4::(5::nil))));
 sum(myL);;
 # 15
+
+let max = box 0;
+let getmax = fn list => {
+match list {
+| nil -> println("end of list") | v::tail -> if (v > *max) {max := v; getmax(tail)} else {getmax(tail)}}
+};
+let myL = 1::(2::(3::(4::(5::nil))));
+getmax(myL); *max;;
+# "end of list"
+# 5
