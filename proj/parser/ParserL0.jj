@@ -262,8 +262,8 @@ ASTNode Fact() :
     | <PRINTLN> t=Fact() { t = new ASTPrint(t, true); }
     | n=<NIL> { t = new ASTNil(); }
     | <MATCH> t = Fact() <LBRA> 
-            <VERT> <NIL> <SLIMARROW> e1 = Let()
-            <VERT> n = <Id> <CONS> n2 = <Id> <SLIMARROW> e2 = Let() <RBRA>
+            <NIL> <SLIMARROW> e1 = Let() <VERT>
+            n = <Id> <CONS> n2 = <Id> <SLIMARROW> e2 = Let() <RBRA>
             { t = new ASTMatch(t, e1, n.image, n2.image, e2); }
     | <LPAR> t=Let() <RPAR> 
     )

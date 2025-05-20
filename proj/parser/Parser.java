@@ -444,7 +444,6 @@ public class Parser implements ParserConstants {
       jj_consume_token(MATCH);
       t = Fact();
       jj_consume_token(LBRA);
-      jj_consume_token(VERT);
       jj_consume_token(NIL);
       jj_consume_token(SLIMARROW);
       e1 = Let();

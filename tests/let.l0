@@ -19,7 +19,7 @@ k+k;;
 let y = 1;
 let b = (y > 0) && (y <= 20);
 let z = (let z = 2*y;  z*z);
-b || ~ (z < 0)
+b || ~ (z < 0);;
 # true
 
 let a = 3;
@@ -27,5 +27,5 @@ let b = a * (let k = a+a; 2*k);
 4*b;;
 # 144
 
----------- NEW ----------
-
+let x = (let x = 2; x); x + 1;;
+# 3
