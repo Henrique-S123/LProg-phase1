@@ -36,5 +36,4 @@ public class ASTMatch implements ASTNode {
 		id2 = i2;
 		conscase = cc;
     }
-
 }

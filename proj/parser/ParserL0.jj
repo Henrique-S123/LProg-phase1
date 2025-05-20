@@ -2,7 +2,6 @@ PARSER_BEGIN(Parser)
 
 package proj.parser;
 
-import proj.values.*;
 import proj.ast.*;
 import proj.*;
 
@@ -220,18 +219,19 @@ ASTNode Term() :
 {Token op;
   ASTNode t1, t2;}
 {
-     t1 = Fact() (
-     	  	 op=<STAR> t2 = Fact()   { t1 = new ASTMult(t1,t2); }
+     t1 = Fact() ( (op=<CONS>|op=<LCONS>) t2 = Term() {
+              if (op.kind == CONS) t1 = new ASTCons(t1,t2);
+              else t1 = new ASTLcons(t1,t2);
+     }
+    |
+    (
+     op=<STAR> t2 = Fact()   { t1 = new ASTMult(t1,t2); }
 		 |
 		 op=<DIV> t2 = Fact()  { t1 = new ASTDiv(t1,t2); }
 		 |
 		 op = <LPAR> t2 = Exp () <RPAR>  { t1 = new ASTApp(t1, t2); }
-     |
-     op = <CONS> t2 = Fact() { t1 = new ASTCons(t1, t2); }
-     |
-     op = <LCONS> t2 = Fact() { t1 = new ASTLcons(t1, t2); }
-		)*
-     { return t1; } 
+		)*)
+     { return t1; }
 }
 
 

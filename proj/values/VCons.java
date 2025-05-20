@@ -26,6 +26,6 @@ public class VCons implements IValue {
     }
 
     public String toStr() {
-        return f.toStr() + "::" + s.toStr();
+        return "(" + f.toStr() + "::" + s.toStr() + ")";
     }
 }

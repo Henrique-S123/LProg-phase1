@@ -29,7 +29,7 @@ public class VLcons implements IValue {
     public void setSecond(IValue vs0) { vs = vs0; }
 
     public String toStr() {
-        if (vf == null && vs == null) {
+        if (vf != null && vs != null) {
             return vf.toStr() + ":?" + vs.toStr();
         } else {
             return f + ":?" + s;
