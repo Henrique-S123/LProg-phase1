@@ -12,7 +12,7 @@ public class ASTNot implements ASTNode {
 		if (v0 instanceof VBool) { 
 			return new VBool(!((VBool) v0).getval()); 
 		} else { 
-			throw new InterpreterError("illegal types to neg operator"); 
+			throw new InterpreterError("~ operator: boolean expected, found " + v0);
 		}
     }
         

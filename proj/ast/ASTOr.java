@@ -13,7 +13,7 @@ public class ASTOr implements ASTNode {
 		if (v1 instanceof VBool && v2 instanceof VBool) {
 			return new VBool(((VBool) v1).getval() || ((VBool) v2).getval());
 		} else {
-			throw new InterpreterError("illegal types to || operator");
+			throw new InterpreterError("|| operator: booleans expected, found " + v1 + " and " + v2);
 		}
     }
 

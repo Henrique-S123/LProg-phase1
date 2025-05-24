@@ -10,7 +10,7 @@ public class ASTWhile implements ASTNode {
     public IValue eval(Environment<IValue> e) throws InterpreterError {
 		IValue vt = test.eval(e);
 		if (!(vt instanceof VBool)) {
-			throw new InterpreterError("illegal type to while condition");
+			throw new InterpreterError("while: bool condition expected, found " + vt);
 		} else {
 			while (((VBool) vt).getval()) {
 				body.eval(e);

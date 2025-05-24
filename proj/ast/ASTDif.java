@@ -13,7 +13,7 @@ public class ASTDif implements ASTNode {
 		if (v1 instanceof VInt && v2 instanceof VInt) {
 			return new VBool(((VInt) v1).getval() != ((VInt) v2).getval());
 		} else {
-			throw new InterpreterError("illegal types to != operator");
+			throw new InterpreterError("~= operator: integers expected, found " + v1 + " and " + v2);
 		}
     }
 

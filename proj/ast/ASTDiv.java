@@ -15,7 +15,7 @@ public class ASTDiv implements ASTNode {
 			int i2 = ((VInt) v2).getval();
 			return new VInt(i1 / i2);
 		} else {
-			throw new InterpreterError("illegal types to / operator");
+			throw new InterpreterError("/ operator: integers expected, found " + v1 + " and " + v2);
 		}
     }
 

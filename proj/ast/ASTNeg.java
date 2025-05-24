@@ -12,7 +12,7 @@ public class ASTNeg implements ASTNode {
 		if (v0 instanceof VInt) { 
 			return new VInt(-((VInt)v0).getval()); 
 		} else { 
-			throw new InterpreterError("illegal types to neg operator"); 
+			throw new InterpreterError("- unary operator: integers expected, found " + v0);
 		}
     }
         

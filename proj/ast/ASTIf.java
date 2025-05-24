@@ -10,7 +10,7 @@ public class ASTIf implements ASTNode {
     public IValue eval(Environment<IValue> e) throws InterpreterError {
 		IValue vt = test.eval(e);
 		if (!(vt instanceof VBool)) {
-			throw new InterpreterError("illegal type to if condition");
+			throw new InterpreterError("if: bool condition expected, found " + vt);
 		} else {
 			if (((VBool) vt).getval()) {
 				return conseq.eval(e);

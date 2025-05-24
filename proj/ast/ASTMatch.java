@@ -36,7 +36,7 @@ public class ASTMatch implements ASTNode {
 			env.assoc(id2, vsecond);
 			return conscase.eval(env);
 		} else
-			throw new InterpreterError("illegal type to match: " + vt.toStr());
+			throw new InterpreterError("match: nil, cons or lcons expected, found " + vt);
     }
 
     public ASTMatch(ASTNode t, ASTNode nc, String i1, String i2, ASTNode cc) {

@@ -19,7 +19,7 @@ public class ASTApp implements ASTNode  {
             env.assoc(((VClos) vfunc).getId(), varg);
             return ((VClos) vfunc).getBody().eval(env);
         } else {
-            throw new InterpreterError("illegal type to function call: " + vfunc.toStr());
+            throw new InterpreterError("func app: closure expected, found " + vfunc);
         }          
     }
 }

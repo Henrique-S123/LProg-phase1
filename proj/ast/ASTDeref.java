@@ -12,7 +12,7 @@ public class ASTDeref implements ASTNode {
 		if (v0 instanceof VRef) {
 			return ((VRef) v0).getval();
 		} else {
-			throw new InterpreterError("illegal type for deref: " + v0.toStr());
+			throw new InterpreterError("* unary operator: reference expected, found " + v0);
 		}
     }
 

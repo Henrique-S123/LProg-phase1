@@ -14,7 +14,7 @@ public class ASTAssign implements ASTNode {
 			((VRef) vr).setval(vv);
 			return vv;
 		} else {
-			throw new InterpreterError("illegal type for assign: " + vr.toStr());
+			throw new InterpreterError(":= operator: reference expected, found " + vr);
 		}
     }
 
