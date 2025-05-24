@@ -7,15 +7,13 @@ public class VLcons implements IValue {
     ASTNode f;
     ASTNode s;
     Environment<IValue> e;
-    IValue vf;
-    IValue vs;
+    IValue vf = null;
+    IValue vs = null;
 
-    public VLcons(ASTNode f0, ASTNode s0, Environment<IValue> e0, IValue vf0, IValue vs0) {
+    public VLcons(ASTNode f0, ASTNode s0, Environment<IValue> e0) {
         f = f0;
         s = s0;
         e = e0;
-        vf = vf0;
-        vs = vs0;
     }
 
     public ASTNode getFirst() { return f; }

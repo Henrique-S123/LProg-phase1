@@ -8,7 +8,7 @@ public class ASTLcons implements ASTNode {
     ASTNode first, rest;
 
     public IValue eval(Environment<IValue> e) throws InterpreterError {
-		return new VLcons(first, rest, e, null, null);
+		return new VLcons(first, rest, e);
     }
 
     public ASTLcons(ASTNode f, ASTNode r) {
