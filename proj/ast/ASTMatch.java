@@ -11,10 +11,20 @@ public class ASTMatch implements ASTNode {
     public IValue eval(Environment<IValue> e) throws InterpreterError {
 		IValue vt = test.eval(e);
 		if (vt instanceof VNil) { return nilcase.eval(e);
-		} else if (vt instanceof VCons) {
+		} else if (vt instanceof VCons || (vt instanceof VLcons &&
+				((VLcons) vt).getFirstValue() != null &&
+				((VLcons) vt).getSecondValue() != null)) {
+			IValue v1, v2;
+			if (vt instanceof VCons) {
+				v1 = ((VCons) vt).getFirst();
+				v2 = ((VCons) vt).getSecond();
+			} else {
+				v1 = ((VLcons) vt).getFirstValue();
+				v2 = ((VLcons) vt).getSecondValue();
+			}
 			Environment<IValue> env = e.beginScope();
-			env.assoc(id1, ((VCons) vt).getFirst());
-			env.assoc(id2, ((VCons) vt).getSecond());
+			env.assoc(id1, v1);
+			env.assoc(id2, v2);
 			return conscase.eval(env);
 		} else if (vt instanceof VLcons) {
 			IValue vfirst = ((VLcons) vt).getFirst().eval(((VLcons) vt).getEnv());

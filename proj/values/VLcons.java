@@ -22,6 +22,10 @@ public class VLcons implements IValue {
 
     public ASTNode getSecond() { return s; }
 
+    public IValue getFirstValue() { return vf; }
+
+    public IValue getSecondValue() { return vs; }
+
     public Environment<IValue> getEnv() { return e; }
 
     public void setFirst(IValue vf0) { vf = vf0; }

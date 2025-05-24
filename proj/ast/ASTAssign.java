@@ -3,8 +3,6 @@ package proj.ast;
 import proj.values.*;
 import proj.*;
 
-import java.util.List;
-
 public class ASTAssign implements ASTNode {
 
     ASTNode ref, value;
