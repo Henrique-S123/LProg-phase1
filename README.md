@@ -1,7 +1,7 @@
 # LProg-phase1
 GIT repository for the first phase of LProg project
 
-To build and run the project, simply run
+To build and run the project, simply run:
 
 ```
 ./makeit.sh
