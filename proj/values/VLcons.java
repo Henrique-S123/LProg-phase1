@@ -4,11 +4,9 @@ import proj.ast.*;
 import proj.*;
 
 public class VLcons implements IValue {
-    ASTNode f;
-    ASTNode s;
+    ASTNode f, s;
     Environment<IValue> e;
-    IValue vf = null;
-    IValue vs = null;
+    IValue vf = null, vs = null;
 
     public VLcons(ASTNode f0, ASTNode s0, Environment<IValue> e0) {
         f = f0;
