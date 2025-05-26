@@ -1,7 +1,5 @@
 package proj;
 
-import proj.ast.*;
-
 import java.util.*;
 
 public class Environment <E>{
