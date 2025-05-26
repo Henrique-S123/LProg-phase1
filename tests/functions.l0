@@ -46,3 +46,33 @@ let k = 42;
 let f = fn y => {y+k};
 f(5);;
 # 47
+
+let reduce =
+fn g, b, k => {
+    if (k == 0) { b }
+    else {
+         g (k) (reduce (g) (b) (k-1) )
+      }
+  };
+let fact = reduce (fn n, p => { n*p }) (1) ;
+fact (10)
+;;
+# 3628800
+
+let reduce =
+fn g, b, k => {
+    if (k == 0) { b }
+    else {
+         g (k) (reduce (g) (b) (k-1) )
+      }
+  };
+let tri = reduce (fn n, p => { n+p }) (1) ;
+tri (100)
+;;
+# 5051
+
+let k = -1;
+let om = fn f => { f (k)};
+om (fn k => {k*k})
+;;
+# 1

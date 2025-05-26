@@ -96,8 +96,6 @@ setfst(mp) (getfst(mp)+getsnd(mp));
 getsnd(mp)* (getfst(mp));;
 # 15
 
-----------------------------------------------------
-
 let x = box 1; x;;
 # ref(1)
 
